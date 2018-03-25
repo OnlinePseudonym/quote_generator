@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './header.js';
+import Quote from './quote.js';
 
-export default class App extends React.Component {
+const END_POINT = 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
+
+export default class App extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <body>
+            <div>
                 <Header />
-            </body>
+                <Quote />
+            </div>
         )
     }
 }
