@@ -5,9 +5,9 @@ const Quote = (props) => {
         <div className="quote">
             <figure>
                 <span className="quotation-marks left">"</span>
-                <p className="quote-content">{props.quote}</p>
+                <p className="quote-content" dangerouslySetInnerHTML={{__html: props.quote}}></p>
                 <span className="quotation-marks right">"</span>
-                <figcaption className="quote-author">{props.author}</figcaption>
+                <figcaption className="quote-author" dangerouslySetInnerHTML={{__html: props.author}}></figcaption>
             </figure>
         </div>
     )

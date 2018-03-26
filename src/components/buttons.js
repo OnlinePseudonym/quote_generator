@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Buttons = () => {
+const Buttons = (props) => {
     return (
-        <div class="buttons">
-            <button class="new-quote btn">NEW QUOTE</button>
-            <button class="share-tweet btn">TWEET</button>
+        <div className="buttons">
+            <button onClick={props.generateQuote} className="new-quote btn">NEW QUOTE</button>
+            <button className="share-tweet btn">TWEET</button>
         </div>
     )
 }
