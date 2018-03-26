@@ -3,7 +3,8 @@ import Header from './header.js';
 import Buttons from './buttons.js';
 import Quote from './quote.js';
 
-const ENDPOINT = 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
+const QUOTE_URL = 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
+const TWEET_URL = 'https://twitter.com/intent/tweet?text=';
 
 class App extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class App extends Component {
     }
     
     generateQuote() {
-        fetch(ENDPOINT)
+        fetch(QUOTE_URL)
         .then(res => res.json())
         .then(resp => {
             this.setState({
@@ -28,10 +29,11 @@ class App extends Component {
     };
 
     render() {
+        const tweetUrl = `${TWEET_URL}${this.state.quote}${this.state.author}`;
         return (
-            <div className="root-container">
+            <div id="quote-box" className="root-container">
                 <Header />
-                <Buttons generateQuote={this.generateQuote} />
+                <Buttons tweetUrl={tweetUrl} generateQuote={this.generateQuote} />
                 <Quote quote={this.state.quote} author={this.state.author} />
             </div>
         )
