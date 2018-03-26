@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Quote = () => {
+const Quote = (props) => {
     return (
         <div className="quote">
             <figure>
                 <span className="quotation-marks left">"</span>
-                <p className="quote-content">It's what you learn after you know it all that counts.</p>
+                <p className="quote-content">{props.quote}</p>
                 <span className="quotation-marks right">"</span>
-                <figcaption className="quote-author"> - John Wooden</figcaption>
+                <figcaption className="quote-author">{props.author}</figcaption>
             </figure>
         </div>
     )
